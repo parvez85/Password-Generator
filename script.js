@@ -98,11 +98,18 @@ function getPasswordOptions() {
     return;
   }
 
-
-
   // Prompt user for which character types to include in password
   var includeSpecial = confirm("Would you like to include special characters?");
   var includeNumeric = confirm("Would you like to include numeric characters?");
+  var includeLowercase = confirm("Would you like to include lowercase characters?");
+  var includeUppercase = confirm("Would you like to include uppercase characters?");
+
+  // Validate that user has selected at least one character type
+  if (!includeSpecial && !includeNumeric && !includeLowercase && !includeUppercase) {
+    alert("Invalid input! Please select at least one character type.");
+    return;
+  }
+
 
 }
 
