@@ -14,3 +14,7 @@ To use this password generator, follow the steps below:
   The generated password will be displayed in the "Password" field.
 
   plase check my project by cliking the link
+
+  https://parvez85.github.io/Password-Generator/
+
+  https://github.com/parvez85/Password-Generator
