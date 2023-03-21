@@ -97,25 +97,53 @@ function getPasswordOptions() {
     alert("Invalid input! Password length must be a number between 8 and 128.");
     return;
   }
-
-  // Prompt user for which character types to include in password
+  
   var includeSpecial = confirm("Would you like to include special characters?");
   var includeNumeric = confirm("Would you like to include numeric characters?");
   var includeLowercase = confirm("Would you like to include lowercase characters?");
   var includeUppercase = confirm("Would you like to include uppercase characters?");
 
   // Validate that user has selected at least one character type
+  
   if (!includeSpecial && !includeNumeric && !includeLowercase && !includeUppercase) {
     alert("Invalid input! Please select at least one character type.");
     return;
   }
 
+  
+  
+  var selectedCharacters = [];
+  if (includeSpecial) {
+    selectedCharacters = selectedCharacters.concat(specialCharacters);
+  }
+  if (includeNumeric) {
+    selectedCharacters = selectedCharacters.concat(numericCharacters);
+  }
+  if (includeLowercase) {
+    selectedCharacters = selectedCharacters.concat(lowerCasedCharacters);
+  }
+  if (includeUppercase) {
+    selectedCharacters = selectedCharacters.concat(upperCasedCharacters);
+  }
+  
+  var genrated =getRandom(selectedCharacters,passwordLength);
 
+  return genrated;
 }
 
-// Function for getting a random element from an array
-function getRandom(arr) {
 
+
+// Function for getting a random element from an array
+function getRandom(arr,passwordLength) {
+  
+  var genrated ="";
+  for(var i=0;i<passwordLength;i++){
+  var randomNumber=Math.floor(Math.random()*arr.length);
+
+  genrated += arr[randomNumber];
+  }
+  
+  return genrated;
 }
 
 // Function to generate password with user input
